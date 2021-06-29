@@ -14,7 +14,7 @@ function preload()
 	starImg = loadImage("images/star.png");
 	bgImg = loadImage("images/starNight.png");
 	//load animation for fairy here
-	fairyImg=loadImage("images/fairyImage1.png")
+	fairyImg=loadAnimation("images/fairyImage1.png","images/fairyImage2.png") 
 	joySound=loadSound("sound/JoyMusic.mp3")
 }
 
@@ -22,11 +22,11 @@ function setup() {
 	createCanvas(800, 750);
 
 	//write code to play fairyVoice sound
-	joySound.play();
+	//joySound.play();
 
 	//create fairy sprite and add animation for fairy
 	fairy=createSprite(130, 520)
-	fairy.addImage(fairyImg);
+	fairy.addAnimation("FAIRYFLYING",fairyImg);
 	fairy.scale=0.2
 
 
@@ -65,18 +65,18 @@ function draw() {
 
 function keyPressed() {
 
-	if (keyCode=DOWN_ARROW) {
+	if (keyCode===DOWN_ARROW) {
 		Matter.Body.setStatic(starBody,false); 
 	}
 
 	//writw code to move fairy left and right
 	if(keyCode===LEFT_ARROW)
 	{
-      fairy.x=fairy.x-3
+      fairy.x=fairy.x-20
 	}
 
-	if(keyCode===Right_ARROW)
+	if(keyCode===RIGHT_ARROW)
 	{
-      fairy.x=fairy.x+3
+      fairy.x=fairy.x+20
 	}
 }
